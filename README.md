@@ -22,7 +22,9 @@ The FCN architecture that we implement comes from the following reference paper 
     arXiv:1411.4038
 
 The net is built on top of the VGG 16-layer net. The latter is a very efficient neural network for image classification. Its architecture is represented on the next figure. It is compound of 16 layers (only convolution, pool and dense).
+
 ![](./vgg16.png)
+
  However it has to be modified to get a prediction at each pixel of the image, instead of a prediction for the whole image.
 The steps for modifying VGG-16 net are : 
 -	Replace the first two fully connected layers by convolutional layers (to get a FCN) (*)
@@ -33,7 +35,9 @@ The steps for modifying VGG-16 net are :
 (*) -> these steps are already performed in the VGG-16 model we take as input. 
 
 A further and essential improvement to get a fine segmentation classification is to add skips to this architecture. This consists in combining the final prediction layer, whose accuracy is coarse, with lower layers with finer strides. This is represented on the next figure, extracted from the reference paper.
+
 ![](./fcn.png)
+
 **Figure. FCN architecture (taken from [LONG])**
 
 Multiple skip architectures are possible (three different ones are presented in [LONG]). The author’s obtained the best performance with the one called FCN-8s. To build this net, the following steps must be performed :
@@ -78,6 +82,7 @@ In the following table, I give the training loss I obtained for the various conf
 To sum-up results, we observe that scaling and L2-regularization (factor=0.001) bring some further improvement to the segmentation. The performance is almost the same for learning rates equal to 0.001 and 0.0001.
 
 Finally I replayed configuration #3 with 40 epochs. Final loss was 0.12. Some exemples of the resulting segmented images are given below:
+
 ![](./results/ex1.png)
 ![](./results/ex2.png)
 ![](./results/ex3.png)
@@ -89,7 +94,6 @@ Finally I replayed configuration #3 with 40 epochs. Final loss was 0.12. Some ex
 ![](./results/ex9.png)
 ![](./results/ex10.png)
 
-Re
 Results are quite good. However segmentation is not satisfactory on shaded areas. For cope with it, image augmentation should be performed.
 
 ## Setup
