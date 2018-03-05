@@ -25,7 +25,7 @@ The net is built on top of the VGG 16-layer net. The latter is a very efficient 
 
 ![](./vgg16.png)
 
-**Figure 2. VGG-16 architecture**
+**Figure 1. VGG-16 architecture**
 
  However it has to be modified to get a prediction at each pixel of the image, instead of a prediction for the whole image.
 The steps for modifying VGG-16 net are : 
