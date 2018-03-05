@@ -25,6 +25,8 @@ The net is built on top of the VGG 16-layer net. The latter is a very efficient 
 
 ![](./vgg16.png)
 
+**Figure 2. VGG-16 architecture**
+
  However it has to be modified to get a prediction at each pixel of the image, instead of a prediction for the whole image.
 The steps for modifying VGG-16 net are : 
 -	Replace the first two fully connected layers by convolutional layers (to get a FCN) (*)
@@ -38,7 +40,7 @@ A further and essential improvement to get a fine segmentation classification is
 
 ![](./fcn.png)
 
-**Figure. FCN architecture (taken from [LONG])**
+**Figure 2. FCN architecture (taken from [LONG])**
 
 Multiple skip architectures are possible (three different ones are presented in [LONG]). The author’s obtained the best performance with the one called FCN-8s. To build this net, the following steps must be performed :
 1) 2x-upsampling of conv7
